@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from "@angular/fire";
@@ -17,6 +18,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -40,6 +42,9 @@ import { FooterComponent } from './components/footer/footer.component';
       AngularFireAuthModule,
       AngularFirestoreModule,
       HighlightModule,  
+      FormsModule,
+      HttpClientModule,
+      ReactiveFormsModule,
        
     ],
     providers: [
