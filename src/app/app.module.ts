@@ -19,6 +19,8 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReviewComponent } from './components/review/review.component';
+import { ReviewlistComponent } from './components/reviewlist/reviewlist.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +34,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
       AdminPageComponent,
       NavbarComponent,
       FooterComponent,
+      ReviewComponent,
+      ReviewlistComponent,
       
       
     ],

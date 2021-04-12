@@ -1,0 +1,86 @@
+<div class="container ">
+    <button (click)="show = !show" class="btn btn-primary">{{ show ? "hide" : "add Review" }}</button>
+  
+    <div *ngIf="show">
+      <div class="border border-primary rounded">
+      <form>
+        <div class="container review-form">
+          <div class="row">
+            <div class="col=md-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  placeholder="Enter game name"
+                  #name
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="score"
+                  class="form-control"
+                  placeholder="Enter the score (0-100)"
+                  maxlength="3"
+                  #score
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="reviewer"
+                  class="form-control"
+                  placeholder="enter your name"
+                  required
+                  #reviewer
+                />
+              </div>
+  
+              <button
+                type="submit"
+                (click)="
+                  addTheReview(
+                    name.value,
+                    score.value,
+                    review.value,
+                    reviewer.value
+                  )
+                "
+                class="btnReview"
+              >
+                Add review
+              </button>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <textarea
+                  type="text"
+                  name="review"               
+                  placeholder="Enter the review here"
+                  class="form-control"
+                  maxlength="300"
+                  style="width: 100%; height: 150px;"
+                  #review
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+  </div>
+    </div>
+  
+  </div>
+  
+  <div class="container">
+    <h1 class="h1 text-center">User Game Reviews</h1>
+    <app-review
+      *ngFor="let reviewData of reviewsData"
+      [reviewData]="reviewData"
+    ></app-review>
+  </div>
+  

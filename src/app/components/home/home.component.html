@@ -11,14 +11,14 @@
            </div>
       </div>
     </form>
-        <div class="container -1">
+        
          
         <div *ngFor="let game of games">
 
-          <div class="border border-primary rounded">
+          <div class="border ">
             <div class="row">
           <div class="col-md-4">
-          <img class="gameImg" src="{{game.background_image}}" [style.width.px]="gameImageWidth" [style.height.px]="gameImageHeight">
+          <img class="img-fluid" src="{{game.background_image}}" >
 
           </div> 
           <div class="col-md-8 ">
@@ -42,7 +42,7 @@
           
 
 
-          </div>
+          
 </div>
 
           </div>
@@ -53,3 +53,4 @@
         </div>
       
 </div>
+<app-reviewlist></app-reviewlist>
