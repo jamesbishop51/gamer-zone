@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    isCollapsed = true;
     constructor(public ngAuthService: NgAuthService) { }
   title = 'gamer-zone';
 }
