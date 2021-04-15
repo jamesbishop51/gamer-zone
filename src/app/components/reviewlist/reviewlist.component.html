@@ -1,8 +1,10 @@
 <div class="container ">
-    <button (click)="show = !show" class="btn btn-primary">{{ show ? "hide" : "add Review" }}</button>
+    <!-- only shows the add review if the user is signed in -->
+    <button (click)="show = !show" class="btn btn-primary" *ngIf="ngAuthService.userState" >{{ show ? "hide" : "Add Review" }}</button>
   
-    <div *ngIf="show">
-      <div class="border border-primary rounded">
+    <div  *ngIf="show">
+
+      <div class="border border-primary rounded container">
       <form>
         <div class="container review-form">
           <div class="row">
@@ -49,9 +51,9 @@
                     reviewer.value
                   )
                 "
-                class="btnReview"
+                class="btn btn-primary"
               >
-                Add review
+                Add Review
               </button>
             </div>
             <div class="col-md-6">

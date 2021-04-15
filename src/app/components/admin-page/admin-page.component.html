@@ -1,13 +1,44 @@
-<div class="container mt-5" style="max-width: 600px">
 
 
-    <div class='container'>
+
+    <!--<div class='container'>
      <form>
-         <input type="text" id="email"  required #email>
-         <button (click)="addAdmin(email)">Add as Admin</button>
-         <button (click)="removeAdmin(email)">Remove as Admin</button>
+         <input class="input-group-text" type="text" id="email"  required #email>
+         <button class="btn btn-primary" (click)="addAdmin(email)">Add as Admin</button>
+         <button class="btn btn-danger" (click)="removeAdmin(email)">Remove as Admin</button>
        </form>
-     </div>  
- 
- 
-  </div>
+     </div>  -->
+     <div class="container"> 
+     <div ngbDropdown class="form-group" >
+         <div class="input-group">
+             <input class="input-group-text form-control" type="text" id="email"  required #email span>
+             <div class="input-group-append">
+                 <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Action</button>
+                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                     <button (click)="addAdmin(email)" ngbDropdownItem>Add as Admin</button>
+                     <button (click)="removeAdmin(email)" ngbDropdownItem>Remove as Admin</button>
+                    </div>
+                </div>
+            </div> 
+         </div>   
+     <!--<div class="input-group">
+        <input type="text" class="form-control" type="text" id="email"  required #email >
+        <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary">Action</button>
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+      </div>-->
+    
+      
+          
+          
+  

@@ -21,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReviewComponent } from './components/review/review.component';
 import { ReviewlistComponent } from './components/reviewlist/reviewlist.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -49,6 +50,7 @@ import { ReviewlistComponent } from './components/reviewlist/reviewlist.componen
       FormsModule,
       HttpClientModule,
       ReactiveFormsModule,
+      NgbModule,
        
     ],
     providers: [

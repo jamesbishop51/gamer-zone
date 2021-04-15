@@ -1,11 +1,11 @@
 <div class="container">
-    <p>Hello from the home component</p>
+    
     <h1 class="h1 text-center">Search for a game</h1>
     <form>
       <div class="form-group">
         <div class="input-group">
-          <input [formControl]="searchText" class="form-control" type="text" name="search" autocomplete="off" placeholder="search games" span>
-            <span class="input-group-btn">
+          <input [formControl]="searchText" class="form-control input-group-text" type="text" name="search" autocomplete="off" placeholder="search games" span>
+            <span class="input-group-btn input-group-append">
             <button type="submit" class="btn btn-primary" (click)="searchForGames()" [disabled]="!searchText.valid"> Search </button> 
           </span>
            </div>
@@ -15,7 +15,7 @@
          
         <div *ngFor="let game of games">
 
-          <div class="border ">
+          <div class="border border-primary ">
             <div class="row">
           <div class="col-md-4">
           <img class="img-fluid" src="{{game.background_image}}" >
@@ -47,7 +47,7 @@
 
           </div>
           <div class="text-center">
-          do you like this game? Consider leaving a review down below
+         
         </div>
         </div>
         </div>

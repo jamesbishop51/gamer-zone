@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewApiService } from 'src/app/services/review-api.service'
 import { IReview, Review } from 'src/app/interfaces/review';
-
+import { NgAuthService } from "../../ng-auth.service";
 
 @Component({
   selector: 'app-reviewlist',
@@ -10,10 +10,11 @@ import { IReview, Review } from 'src/app/interfaces/review';
   providers: [ReviewApiService]
 })
 export class ReviewlistComponent implements OnInit {
+    
     reviewsData: IReview[];
     show:boolean;
-    constructor(private _reviewAPIService:ReviewApiService) { }
-
+    constructor(private _reviewAPIService:ReviewApiService,public ngAuthService: NgAuthService) { }
+    
   ngOnInit(): void {
     this._reviewAPIService.getReviewData().subscribe(reviewsData =>
         { this.reviewsData = reviewsData });
