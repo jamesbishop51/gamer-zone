@@ -1,84 +1,92 @@
-
-    <div align="center" class="page-content page-container" id="page-content" *ngIf="ngAuthService.userState as user">
-        <div class="padding">
-            <div class="row container d-flex justify-content-center">
-                <div class="col-xl-6 col-md-12">
-                    <div class="card user-card-full">
-                        <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile">
-                                <div class="card-block text-center text-white">
-                                    <div class="m-b-25"> <img src="{{(user.photoURL) ? user.photoURL : 'https://img.icons8.com/bubbles/100/000000/user.png'}}" class="img-radius img-fluid" alt="User-Profile-Image"> </div>
-                                    <h3>{{(user.displayName) ? user.displayName : 'User'}}</h3>
-                                    <p *ngIf="ngAuthService.userAdmin">Admin</p>
-                                    <p *ngIf="!ngAuthService.userAdmin">User</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                                </div>
+<div align="center" class="page-content page-container" id="page-content" *ngIf="ngAuthService.userState as user">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-6 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img
+                                        src="{{(user.photoURL) ? user.photoURL : 'https://img.icons8.com/bubbles/100/000000/user.png'}}"
+                                        class="img-radius img-fluid" alt="User-Profile-Image"> </div>
+                                <h3>{{(user.displayName) ? user.displayName : 'User'}}</h3>
+                                <p *ngIf="ngAuthService.userAdmin">Admin</p>
+                                <p *ngIf="!ngAuthService.userAdmin">User</p> <i
+                                    class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
-                            <div class="col-sm-8">
-                                <div class="card-block">
-                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <p class="m-b-10 f-w-600">User Name</p>
-                                            <h6 class="text-muted f-w-400">{{user.displayName}}</h6>
-                                        </div>                                        
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="m-b-10 f-w-600">User Name</p>
+                                        <h6 class="text-muted f-w-400">{{user.displayName}}</h6>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <p class="m-b-10 f-w-600">Email</p>
-                                            <h6 class="text-muted f-w-400">{{user.email}}</h6>
-                                        </div>  
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <p class="m-b-10 f-w-600">User Id</p>
-                                            <h6 class="text-muted f-w-400">{{user.uid}}</h6>
-                                        </div>  
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!--<button type="button" class="btn btn-primary justify-content-center" (click)="show = !show">Edit Details</button>-->
-                                            <button (click)="show = !show" class="btn btn-primary"  >{{ show ? "Close" : "Edit Details" }}</button>
-                                        </div>  
-                                    </div>
-                                    
-                                    
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="m-b-10 f-w-600">Email</p>
+                                        <h6 class="text-muted f-w-400">{{user.email}}</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="m-b-10 f-w-600">User Id</p>
+                                        <h6 class="text-muted f-w-400">{{user.uid}}</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">                                      
+                                        <button (click)="show = !show" class="btn btn-primary">{{ show ? "Close" : "Edit
+                                            Details" }}</button>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="show">
+    </div>
+    <div *ngIf="show">
         <form>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <form>
                             <div class="form-group">
-                              <div class="input-group">
-                                <input [formControl]="username" class="form-control input-group-text" type="text" name="search" autocomplete="off" placeholder="enter your new user name" span>
-                                  <span class="input-group-btn input-group-append">
-                                  <button type="submit" class="btn btn-primary" (click)="ngAuthService.updateUserName(username.value)" [disabled]="!username.valid"> Update </button> 
-                                </span>
-                                 </div>
+                                <div class="input-group">
+                                    <input [formControl]="username" class="form-control input-group-text" type="text"
+                                        name="search" autocomplete="off" placeholder="enter your new user name" span>
+                                    <span class="input-group-btn input-group-append">
+                                        <button type="submit" class="btn btn-primary"
+                                            (click)="ngAuthService.updateUserName(username.value)"
+                                            [disabled]="!username.valid"> Update </button>
+                                    </span>
+                                </div>
                             </div>
                             <form>
                                 <div class="form-group">
-                                  <div class="input-group">
-                                    <input [formControl]="profileImg" class="form-control input-group-text" type="text" name="profileImg" autocomplete="off" placeholder="enter your new profile image url here" 
-                                    require span>
-                                      <span class="input-group-btn input-group-append">
-                                      <button type="submit" class="btn btn-primary" (click)="ngAuthService.updateImg(profileImg.value)" [disabled]="!profileImg.valid"> Update </button> 
-                                    </span>
-                                     </div>
+                                    <div class="input-group">
+                                        <input [formControl]="profileImg" class="form-control input-group-text"
+                                            type="text" name="profileImg" autocomplete="off"
+                                            placeholder="enter your new profile image url here" require span>
+                                        <span class="input-group-btn input-group-append">
+                                            <button type="submit" class="btn btn-primary"
+                                                (click)="ngAuthService.updateImg(profileImg.value)"
+                                                [disabled]="!profileImg.valid"> Update </button>
+                                        </span>
+                                    </div>
                                 </div>
-                              </form>
-                          </form>
-                          
-                        </div>
+                            </form>
+                        </form>
+
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
+</div>

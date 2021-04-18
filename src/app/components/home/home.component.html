@@ -1,56 +1,58 @@
 <div class="container">
-    
+
     <br>
     <form>
-      <div class="form-group">
-        <div class="input-group">
-          <input [formControl]="searchText" class="form-control input-group-text" type="text" name="search" autocomplete="off" placeholder="search games" span>
-            <span class="input-group-btn input-group-append">
-            <button type="submit" class="btn btn-primary" (click)="searchForGames()" [disabled]="!searchText.valid"> Search </button> 
-          </span>
-           </div>
-      </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input [formControl]="searchText" class="form-control input-group-text" type="text" name="search"
+                    autocomplete="off" placeholder="search games" span>
+                <span class="input-group-btn input-group-append">
+                    <button type="submit" class="btn btn-primary" (click)="searchForGames()"
+                        [disabled]="!searchText.valid"> Search </button>
+                </span>
+            </div>
+        </div>
     </form>
-        
-         
-        <div *ngFor="let game of games">
 
-          <div class="border border-primary ">
+
+    <div *ngFor="let game of games">
+
+        <div class="border border-primary ">
             <div class="row">
-          <div class="col-md-4">
-          <img class="img-fluid" src="{{game.background_image}}" >
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{{game.background_image}}">
 
-          </div> 
-          <div class="col-md-8 ">
-           <table class="table table-bordered">
-           <tbody>
-              <tr>
-                <th>Game Name: {{game.name}}</th>
-              </tr>
-             <tr>
-                <th>metacritic score: {{game.metacritic}}</th>
-              </tr>
-              <tr>
-                <th>release date: {{game.released}}</th>
-              </tr>
-              <tr>
-                <th>rating: {{game.rating}}</th>
-              </tr>
-            </tbody>
+                </div>
+                <div class="col-md-8 ">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>Game Name: {{game.name}}</th>
+                            </tr>
+                            <tr>
+                                <th>metacritic score: {{game.metacritic}}</th>
+                            </tr>
+                            <tr>
+                                <th>release date: {{game.released}}</th>
+                            </tr>
+                            <tr>
+                                <th>rating: {{game.rating}}</th>
+                            </tr>
+                        </tbody>
 
-           </table>
-          
+                    </table>
 
 
-          
-</div>
 
-          </div>
-          <div class="text-center">
-         
+
+                </div>
+
+            </div>
+            <div class="text-center">
+
+            </div>
         </div>
-        </div>
-        </div>
-      
+    </div>
+
 </div>
 <app-reviewlist></app-reviewlist>

@@ -1,50 +1,40 @@
-
-
-
-    <br>
-     <div class="container testing"> 
-     <div ngbDropdown class="form-group" >
-         <div class="input-group">
-             <input class="input-group-text form-control" type="text" id="email"  required #email span>
-             <div class="input-group-append">
-                 <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Action</button>
-                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                     <button (click)="addAdmin(email)" ngbDropdownItem>Add as Admin</button>
-                     <button (click)="removeAdmin(email)" ngbDropdownItem>Remove as Admin</button>
-                    </div>
+<br>
+<div class="container testing">
+    <div ngbDropdown class="form-group">
+        <div class="input-group">
+            <input class="input-group-text form-control" type="text" id="email" required #email span>
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Action</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button (click)="addAdmin(email)" ngbDropdownItem>Add as Admin</button>
+                    <button (click)="removeAdmin(email)" ngbDropdownItem>Remove as Admin</button>
                 </div>
             </div>
-             <br>
-<p class="text-center">Review Control</p>
-                <div class="container " *ngFor="let item of items">
+        </div>
+        <br>
+        <p class="text-center">Review Control</p>
+        <div class="container " *ngFor="let item of items">
 
-                    <div class="row border rounded">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                Title: {{item.title}} 
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                 Reviewer: {{item.reviewer}}
-                            </div>
-                        </div>
-                        <div align="right" class="col-md-2">
-                            <button class="btn btn-danger ml-2" (click)="delete(item)">Delete</button>
-                        </div>
-
+            <div class="row border rounded">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        Title: {{item.title}}
                     </div>
-
-<!--<li class="mb-3" *ngFor="let item of items">{{item.review}} {{item.reviewer}}
-      
-                        <button class="btn btn-danger ml-2" (click)="delete(item)">Delete</button>
-                        <hr>
-                      </li>-->
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        Reviewer: {{item.reviewer}}
                     </div>
-         </div>   
-     </div>
-    
-      
-          
+                </div>
+                <div align="right" class="col-md-2">
+                    <button class="btn btn-danger ml-2" (click)="delete(item)">Delete</button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
           
   

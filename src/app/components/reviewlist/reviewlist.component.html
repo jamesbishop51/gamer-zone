@@ -1,104 +1,56 @@
 <div class="container ">
     <!-- only shows the add review if the user is signed in -->
-    <button (click)="show = !show" class="btn btn-primary" *ngIf="ngAuthService.userState" >{{ show ? "hide" : "Add Review" }}</button>
-  
-    <div  *ngIf="show">
+    <button (click)="show = !show" class="btn btn-primary" *ngIf="ngAuthService.userState">{{ show ? "hide" : "Add
+        Review" }}</button>
 
-      <div class="border border-primary rounded container" >
-          
-      <form>
-        <div class="container review-form">
-          <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <input
-                    type="text"
-                    name="title"
-                    class="form-control"
-                    placeholder="enter a title for your review"
-                    #title
-                    required
-                    />
+    <div *ngIf="show">
+
+        <div class="border border-primary rounded container">
+
+            <form>
+                <div class="container review-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="title" class="form-control"
+                                    placeholder="enter a title for your review" #title required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Enter game name" #name
+                                    required />
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="score" class="form-control"
+                                    placeholder="Enter the score (0-100)" min="0" max="100" #score required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Enter your user name" name="reviewer"
+                                    class="form-control" required #reviewer />
+                            </div>
+
+
+                            <button type="submit" (click)="addTheReview(title.value,name.value,score.value,review.value,reviewer.value)"
+                                class="btn btn-primary">
+                                Add Review
+                            </button>
+                            </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea type="text" name="review" placeholder="Enter the review here"
+                                    class="form-control" maxlength="500" style="width: 100%; height: 250px;" #review
+                                    required></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  class="form-control"
-                  placeholder="Enter game name"
-                  #name
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="number"
-                  name="score"
-                  class="form-control"
-                  placeholder="Enter the score (0-100)"
-                  min="0"
-                  max="100"
-                  #score
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  placeholder="Enter your user name"
-                  name="reviewer"
-                  class="form-control"                
-                  required
-                  #reviewer
-                  
-                />
-              </div>
-             
-                 
-              <button
-                type="submit"
-                (click)="
-                  addTheReview(
-                    title.value,
-                    name.value,
-                    score.value,
-                    review.value,
-                    reviewer.value 
-                  ) 
-                "
-                class="btn btn-primary"
-              >
-                Add Review
-              </button>
-            </div>
-            
-            <div class="col-md-6" >
-              <div class="form-group" >
-                <textarea               
-                  type="text"
-                  name="review"                           
-                  placeholder="Enter the review here"
-                  class="form-control"
-                  maxlength="500"
-                  style="width: 100%; height: 200px;"
-                  #review
-                  required
-                ></textarea>
-              </div>
-            </div>
-          </div>
+            </form>
         </div>
-      </form>
-  </div>
     </div>
-  
-  </div>
-  
-  <div class="container">
+
+</div>
+
+<div class="container">
     <h4 class="h1 text-center">Reviews</h4>
-    <app-review
-      *ngFor="let reviewData of reviewsData"
-      [reviewData]="reviewData"
-    ></app-review>
-  </div>
-  
+    <app-review *ngFor="let reviewData of reviewsData" [reviewData]="reviewData"></app-review>
+</div>
