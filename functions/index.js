@@ -13,7 +13,7 @@ exports.addAdminRole = functions.https.onCall((data) => {
         })
     }).then(() => {
         return{
-            message: `${data.email} setup admin`
+            message: `${data.email} setup as admin`
         }
     }).catch(err => {
         return err;

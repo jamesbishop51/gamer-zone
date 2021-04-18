@@ -4,11 +4,22 @@
   
     <div  *ngIf="show">
 
-      <div class="border border-primary rounded container">
+      <div class="border border-primary rounded container" >
+          
       <form>
         <div class="container review-form">
           <div class="row">
-            <div class="col=md-6">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    placeholder="enter a title for your review"
+                    #title
+                    required
+                    />
+                </div>
               <div class="form-group">
                 <input
                   type="text"
@@ -30,25 +41,28 @@
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group" *ngIf="ngAuthService.userState">
                 <input
                   type="text"
+                  value="{{user.displayName}}"
                   name="reviewer"
-                  class="form-control"
-                  placeholder="enter your name"
+                  class="form-control"                
                   required
                   #reviewer
+                  
                 />
               </div>
-  
+             
+                 
               <button
                 type="submit"
                 (click)="
                   addTheReview(
+                    title.value,
                     name.value,
                     score.value,
                     review.value,
-                    reviewer.value
+                    reviewer.value 
                   )
                 "
                 class="btn btn-primary"
@@ -56,15 +70,16 @@
                 Add Review
               </button>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <textarea
+            
+            <div class="col-md-6" >
+              <div class="form-group" >
+                <textarea               
                   type="text"
-                  name="review"               
+                  name="review"                           
                   placeholder="Enter the review here"
                   class="form-control"
                   maxlength="300"
-                  style="width: 100%; height: 150px;"
+                  style="width: 100%; height: 200px;"
                   #review
                   required
                 ></textarea>

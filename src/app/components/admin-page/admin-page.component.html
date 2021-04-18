@@ -1,13 +1,7 @@
 
 
 
-    <!--<div class='container'>
-     <form>
-         <input class="input-group-text" type="text" id="email"  required #email>
-         <button class="btn btn-primary" (click)="addAdmin(email)">Add as Admin</button>
-         <button class="btn btn-danger" (click)="removeAdmin(email)">Remove as Admin</button>
-       </form>
-     </div>  -->
+    
      <div class="container"> 
      <div ngbDropdown class="form-group" >
          <div class="input-group">
@@ -20,23 +14,34 @@
                     </div>
                 </div>
             </div> 
+<p class="text-center">Review Control</p>
+                <div class="container" *ngFor="let item of items">
+
+                    <div class="row border">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                Title: {{item.title}} 
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                 Reviewer: {{item.reviewer}}
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-danger ml-2" (click)="delete(item)">Delete</button>
+                        </div>
+
+                    </div>
+
+<!--<li class="mb-3" *ngFor="let item of items">{{item.review}} {{item.reviewer}}
+      
+                        <button class="btn btn-danger ml-2" (click)="delete(item)">Delete</button>
+                        <hr>
+                      </li>-->
+                    </div>
          </div>   
-     <!--<div class="input-group">
-        <input type="text" class="form-control" type="text" id="email"  required #email >
-        <div class="input-group-append">
-          <button type="button" class="btn btn-outline-secondary">Action</button>
-          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </div>
-      </div>-->
+     
     
       
           

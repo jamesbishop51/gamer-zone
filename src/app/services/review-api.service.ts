@@ -20,15 +20,15 @@ export class ReviewApiService {
   
       this.reviewsDataCollection=_afs.collection<IReview>("review_data");
   
-     }
+    }
      getReviewData():Observable<IReview[]>{
         this.reviewsData = this.reviewsDataCollection.valueChanges();
         this.reviewsData.subscribe(data => console.log("getReviewData:" + JSON.stringify(data)));
         return this.reviewsData;
         
-      }
+    }
    
       addReviewData(review:IReview): void{
         this.reviewsDataCollection.add(JSON.parse(JSON.stringify(review)));
-      }
+    }
 }

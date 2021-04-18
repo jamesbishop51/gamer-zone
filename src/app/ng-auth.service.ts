@@ -10,6 +10,7 @@ import { customClaims, idTokenResult } from '@angular/fire/auth-guard';
 import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
 import * as firebase from 'firebase/app';
 import {auth} from 'firebase/app'  
+
 //this no longer works so was replaced with import below 
 //and now auth needs to be firebase.auth instead of just auth
 //import firebase from 'firebase/app'
@@ -87,15 +88,40 @@ export class NgAuthService {
         })
     }
   
-    SignUp(email, password) {
-      return this.afAuth.createUserWithEmailAndPassword(email, password)
-        .then((result) => {
-          this.SendVerificationMail();
-          this.SetUserData(result.user);
-        }).catch((error) => {
-          window.alert(error.message)
+    updateImg( photoURL){
+        return firebase.auth().currentUser.updateProfile({
+            
+            photoURL 
+        }).then(() => {
+            return{
+                message: `updated info`
+            }
+        }).catch(err => {
+            return err;
         })
     }
+    updateUserName(displayName){
+        return firebase.auth().currentUser.updateProfile({
+            displayName
+        }).then(()=>{
+            return{
+                message: `updated info`
+            }
+        }).catch(err => {
+            return err;
+        })
+    }
+
+
+    SignUp(email, password) {
+        return this.afAuth.createUserWithEmailAndPassword(email, password)
+          .then((result) => {
+            this.SendVerificationMail();
+            this.SetUserData(result.user);
+          }).catch((error) => {
+            window.alert(error.message)
+          })
+      }
 
     SendVerificationMail() {
         return this.afAuth.currentUser.then(u => u.sendEmailVerification())

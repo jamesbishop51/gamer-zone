@@ -3,7 +3,7 @@
     <div class="row" *ngIf="ngAuthService.userState as user">
       <div class="media">
         <img class="align-self-start mr-5 img-thumbnail rounded-circle"
-          src="{{(user.photoURL) ? user.photoURL : '/assets/dummy.jpg'}}" alt="{{user.displayName}}">
+          src="{{(user.photoURL) ? user.photoURL : 'https://img.icons8.com/bubbles/100/000000/user.png'}}" alt="{{user.displayName}}">
         <div class="media-body">
           <h2>Hi: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h2>
           <p>User ID: <strong>{{user.uid}}</strong></p>
@@ -12,4 +12,47 @@
         </div>
       </div>
     </div> 
-  </div>
+    <button type="button" class="btn btn-primary" (click)="show = !show"></button>
+
+    <div *ngIf="show">
+        <form>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                              <div class="input-group">
+                                <input [formControl]="username" class="form-control input-group-text" type="text" name="search" autocomplete="off" placeholder="enter your new user name" span>
+                                  <span class="input-group-btn input-group-append">
+                                  <button type="submit" class="btn btn-primary" (click)="ngAuthService.updateUserName(username.value)" [disabled]="!username.valid"> Update </button> 
+                                </span>
+                                 </div>
+                            </div>
+                            <form>
+                                <div class="form-group">
+                                  <div class="input-group">
+                                    <input [formControl]="profileImg" class="form-control input-group-text" type="text" name="profileImg" autocomplete="off" placeholder="enter your new profile image url here" 
+                                    require span>
+                                      <span class="input-group-btn input-group-append">
+                                      <button type="submit" class="btn btn-primary" (click)="ngAuthService.updateImg(profileImg.value)" [disabled]="!profileImg.valid"> Update </button> 
+                                    </span>
+                                     </div>
+                                </div>
+                              </form>
+                          </form>
+                          <!--<button type="submit"(click)="ngAuthService.updateInfo(username.value, profileImg.value)"></button>-->
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>  
+    
+
+
+
+
+   
+    
+ 
