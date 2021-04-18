@@ -1,8 +1,8 @@
 
 
 
-    
-     <div class="container"> 
+    <br>
+     <div class="container testing"> 
      <div ngbDropdown class="form-group" >
          <div class="input-group">
              <input class="input-group-text form-control" type="text" id="email"  required #email span>
@@ -13,11 +13,12 @@
                      <button (click)="removeAdmin(email)" ngbDropdownItem>Remove as Admin</button>
                     </div>
                 </div>
-            </div> 
+            </div>
+             <br>
 <p class="text-center">Review Control</p>
-                <div class="container" *ngFor="let item of items">
+                <div class="container " *ngFor="let item of items">
 
-                    <div class="row border">
+                    <div class="row border rounded">
                         <div class="col-md-5">
                             <div class="form-group">
                                 Title: {{item.title}} 
@@ -28,7 +29,7 @@
                                  Reviewer: {{item.reviewer}}
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div align="right" class="col-md-2">
                             <button class="btn btn-danger ml-2" (click)="delete(item)">Delete</button>
                         </div>
 
@@ -41,7 +42,7 @@
                       </li>-->
                     </div>
          </div>   
-     
+     </div>
     
       
           
